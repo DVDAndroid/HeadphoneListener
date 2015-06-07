@@ -21,10 +21,21 @@
                 <action android:name="android.intent.ACTION_HEADSET_PLUG"/>
             </intent-filter>
         </receiver>
+
         <service
             android:name=".HeadsetService"
             android:enabled="true"
             android:exported="true"/>
+
+        <receiver android:name=".ToggleServiceWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/toggle_service_widget_info"/>
+        </receiver>
     </application>
 
 </manifest>
