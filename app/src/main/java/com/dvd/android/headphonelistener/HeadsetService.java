@@ -1,4 +1,4 @@
-package com.dvd.android.headsetlistener;
+package com.dvd.android.headphonelistener;
 
 import android.app.Notification;
 import android.app.NotificationManager;

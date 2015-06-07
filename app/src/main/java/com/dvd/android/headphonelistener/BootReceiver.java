@@ -1,4 +1,4 @@
-package com.dvd.android.headsetlistener;
+package com.dvd.android.headphonelistener;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
