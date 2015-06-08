@@ -2,6 +2,7 @@ package com.dvd.android.headphonelistener.services;
 
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +11,7 @@ import android.os.Handler;
 import android.os.IBinder;
 
 import com.dvd.android.headphonelistener.R;
+import com.dvd.android.headphonelistener.SettingsActivity;
 import com.dvd.android.headphonelistener.receivers.HeadsetReceiver;
 
 public class HeadsetService extends Service {
@@ -34,10 +36,15 @@ public class HeadsetService extends Service {
 		final NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 		notificationManager.cancel(22);
 
+		Intent notificationIntent = new Intent(this, SettingsActivity.class);
+		PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,
+				notificationIntent, 0);
+
 		Notification notification = new Notification.Builder(this)
 				.setContentTitle(getString(R.string.app_name))
 				.setContentText(getString(id)).setAutoCancel(true)
 				.setSmallIcon(R.mipmap.ic_launcher)
+				.setContentIntent(pendingIntent)
 				.setWhen(System.currentTimeMillis()).build();
 
 		notification.flags |= Notification.FLAG_AUTO_CANCEL;
@@ -48,7 +55,7 @@ public class HeadsetService extends Service {
 			public void run() {
 				notificationManager.cancel(NOTIFICATION_ID);
 			}
-		}, 4500);
+		}, 10000);
 	}
 
 	@Override

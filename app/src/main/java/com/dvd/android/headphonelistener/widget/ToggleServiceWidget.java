@@ -6,7 +6,6 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.widget.RemoteViews;
 
 import com.dvd.android.headphonelistener.R;
@@ -44,23 +43,9 @@ public class ToggleServiceWidget extends AppWidgetProvider {
 					pendingIntent);
 			appWidgetManager.updateAppWidget(appWidgetId, remoteViews);
 
-			Log.w("ofahusditfyjvsdisdl", String.valueOf(appWidgetId));
 		}
 	}
 
-	/*
-	 * Class classService = HeadsetService.class; PendingIntent pendingIntent =
-	 * PendingIntent.getActivity(context, 0, intentService, 0); if
-	 * (isMyServiceRunning(context, classService))
-	 * context.startService(intentService); else
-	 * context.stopService(intentService);
-	 * 
-	 * RemoteViews views = new RemoteViews(context.getPackageName(),
-	 * R.layout.toggle_service_widget);
-	 * views.setOnClickPendingIntent(R.id.imageViewWidget, pendingIntent);
-	 * 
-	 * appWidgetManager.updateAppWidget(appWidgetId, views);
-	 */
 	private boolean isMyServiceRunning(Context context, Class<?> serviceClass) {
 		ActivityManager manager = (ActivityManager) context
 				.getSystemService(Context.ACTIVITY_SERVICE);
