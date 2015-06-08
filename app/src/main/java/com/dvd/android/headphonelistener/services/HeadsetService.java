@@ -1,4 +1,4 @@
-package com.dvd.android.headphonelistener;
+package com.dvd.android.headphonelistener.services;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -8,6 +8,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.IBinder;
+
+import com.dvd.android.headphonelistener.R;
+import com.dvd.android.headphonelistener.receivers.HeadsetReceiver;
 
 public class HeadsetService extends Service {
 

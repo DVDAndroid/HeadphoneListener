@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">Headphone Listener</string>
+
     <string name="service_started">Service started!</string>
     <string name="service_stopped">Service stopped!</string>
-    <string name="appwidget_text">EXAMPLE</string>
-    <string name="add_widget">Add widget</string>
+    <string name="none">None</string>
+    <string name="open_default_app">Open default app</string>
+    <string name="choose_or_not">Choose app or open default one</string>
+    <string name="choose_apps_summ">Switch off this preference to choose default app when headphones are plugged in</string>
+    <string name="error">Error when starting default app</string>
 </resources>

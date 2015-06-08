@@ -1,4 +1,4 @@
-package com.dvd.android.headphonelistener;
+package com.dvd.android.headphonelistener.widget;
 
 import android.app.ActivityManager;
 import android.app.PendingIntent;
@@ -8,6 +8,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.widget.RemoteViews;
+
+import com.dvd.android.headphonelistener.R;
+import com.dvd.android.headphonelistener.services.HeadsetService;
 
 public class ToggleServiceWidget extends AppWidgetProvider {
 
