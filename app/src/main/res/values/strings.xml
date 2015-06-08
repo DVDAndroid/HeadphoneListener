@@ -8,4 +8,8 @@
     <string name="choose_or_not">Choose app or open default one</string>
     <string name="choose_apps_summ">Switch off this preference to choose default app when headphones are plugged in</string>
     <string name="error">Error when starting default app</string>
+    <string name="start_service">Start service</string>
+    <string name="stop_service">Stop service</string>
+    <string name="restart_service">Restart service</string>
+
 </resources>
