@@ -1,6 +1,9 @@
 package com.dvd.android.headphonelistener;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.view.Menu;
@@ -15,6 +18,16 @@ public class SettingsActivity extends PreferenceActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.settings);
+
+		int actionBarColor = Color.parseColor("#FF9800");
+		int statusBarColor = Color.parseColor("#F57C00");
+
+		assert getActionBar() != null;
+		getActionBar().setBackgroundDrawable(new ColorDrawable(actionBarColor));
+
+		if (Build.VERSION.SDK_INT >= 21)
+			getWindow().setStatusBarColor(statusBarColor);
+
 	}
 
 	@Override
