@@ -11,5 +11,7 @@
     <string name="start_service">Start service</string>
     <string name="stop_service">Stop service</string>
     <string name="restart_service">Restart service</string>
+    <string name="notification">Notification settings</string>
+    <string name="show_notification">Show notification</string>
 
 </resources>

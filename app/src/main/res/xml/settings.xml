@@ -15,4 +15,13 @@
         android:title="@string/open_default_app"
         app:showPackageName="true"/>
 
+    <PreferenceCategory android:title="@string/notification">
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="notification"
+            android:title="@string/show_notification"/>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

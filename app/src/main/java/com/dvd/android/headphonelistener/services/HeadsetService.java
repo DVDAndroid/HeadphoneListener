@@ -7,6 +7,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.IBinder;
 
@@ -31,6 +32,14 @@ public class HeadsetService extends Service {
 	}
 
 	private void createNotification(boolean created) {
+		SharedPreferences prefs = getSharedPreferences(
+				"com.dvd.android.headphonelistener_preferences",
+				Context.MODE_PRIVATE);
+
+		if (!prefs.getBoolean("notification", true)) {
+			return;
+		}
+
 		int id = created ? R.string.service_started : R.string.service_stopped;
 
 		final NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
