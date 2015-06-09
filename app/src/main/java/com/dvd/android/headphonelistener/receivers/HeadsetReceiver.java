@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.media.AudioManager;
 import android.widget.Toast;
 
 import com.dvd.android.headphonelistener.R;
@@ -20,9 +21,11 @@ public class HeadsetReceiver extends BroadcastReceiver {
 					Context.MODE_PRIVATE);
 			String packageName = prefs.getString("default_app_packageName",
 					context.getString(R.string.none));
+			int level = prefs.getInt("initial_volume", 20);
 
 			int state = intent.getIntExtra("state", -1);
 			if (state == 1) {
+				setLevelAudio(context, level);
 				if (prefs.getBoolean("choose_apps", true)) {
 					startDefaultIntent(context);
 				} else {
@@ -43,6 +46,12 @@ public class HeadsetReceiver extends BroadcastReceiver {
 				}
 			}
 		}
+	}
+
+	private void setLevelAudio(Context context, int levelAudio) {
+		AudioManager audioManager = (AudioManager) context
+				.getSystemService(Context.AUDIO_SERVICE);
+		audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, levelAudio, 0);
 	}
 
 	private void startDefaultIntent(Context context) {

@@ -21,6 +21,8 @@ import com.dvd.android.headphonelistener.services.HeadsetService;
 
 public class SettingsActivity extends PreferenceActivity {
 
+	private Intent mServiceIntent;
+
 	@Override
 	@SuppressWarnings("deprecation")
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +38,14 @@ public class SettingsActivity extends PreferenceActivity {
 		if (Build.VERSION.SDK_INT >= 21)
 			getWindow().setStatusBarColor(statusBarColor);
 
+		mServiceIntent = new Intent(this, HeadsetService.class);
+		startService(mServiceIntent);
+
 		try {
 			PackageInfo pInfo = getPackageManager().getPackageInfo(
 					getPackageName(), 0);
 			findPreference("version").setSummary(
-					getString(R.string.version) + "  " + pInfo.versionName
+					getString(R.string.version) + ":  " + pInfo.versionName
 							+ " (" + pInfo.versionCode + ")");
 		} catch (PackageManager.NameNotFoundException e) {
 			e.printStackTrace();
@@ -56,17 +61,16 @@ public class SettingsActivity extends PreferenceActivity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		Intent service = new Intent(this, HeadsetService.class);
 		switch (item.getItemId()) {
 			case R.id.start_service:
-				startService(service);
+				startService(mServiceIntent);
 				break;
 			case R.id.stop_service:
-				stopService(service);
+				stopService(mServiceIntent);
 				break;
 			case R.id.restart_service:
-				stopService(service);
-				startService(service);
+				stopService(mServiceIntent);
+				startService(mServiceIntent);
 				break;
 		}
 

@@ -20,4 +20,8 @@
     <string name="troubleshooting">Risoluzione dei problemi</string>
     <string name="version">Versione</string>
     <string name="visit_webpage">Visita la mia webpage</string>
+    <string name="initial_volume">Volume iniziale</string>
+    <string name="initial_volume_summary">Imposta il livello di volume quando le cuffie sono collegate</string>
+    <string name="volume">Impostazioni volume</string>
+    <string name="general_settings">Impostazioni generali</string>
 </resources>

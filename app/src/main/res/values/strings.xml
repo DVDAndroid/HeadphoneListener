@@ -21,5 +21,9 @@
     <string name="no_problems">No problems found</string>
     <string name="cancel_default_toast">When settings activity is open, click button Clear Defaults</string>
     <string name="version">Version</string>
+    <string name="volume">Volume settings</string>
+    <string name="initial_volume">Initial volume</string>
+    <string name="initial_volume_summary">Set volume level when headphones are plugged in</string>
+    <string name="general_settings">General settings</string>
 
 </resources>
