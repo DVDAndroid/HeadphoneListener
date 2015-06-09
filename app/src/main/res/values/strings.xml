@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Headphone Listener</string>
+    <string name="app_name" translatable="false">Headphone Listener</string>
 
     <string name="service_started">Service started!</string>
     <string name="service_stopped">Service stopped!</string>
@@ -13,5 +13,13 @@
     <string name="restart_service">Restart service</string>
     <string name="notification">Notification settings</string>
     <string name="show_notification">Show notification</string>
+    <string name="about">About</string>
+    <string name="visit_webpage">Visit my webpage</string>
+    <string name="show_source_code">Show source code</string>
+    <string name="troubleshooting">Troubleshooting</string>
+    <string name="cancel_default">Cancel default</string>
+    <string name="no_problems">No problems found</string>
+    <string name="cancel_default_toast">When settings activity is open, click button Clear Defaults</string>
+    <string name="version">Version</string>
 
 </resources>

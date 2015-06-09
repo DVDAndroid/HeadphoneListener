@@ -24,4 +24,30 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="@string/about">
+
+        <Preference
+            android:key="webpage"
+            android:summary="http://dvdandroid.github.io"
+            android:title="@string/visit_webpage"/>
+
+        <Preference
+            android:key="source_code"
+            android:summary="https://github.com/DVDAndroid/HeadphoneListener"
+            android:title="@string/show_source_code"/>
+
+        <Preference
+            android:key="version"
+            android:title="@string/version"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/troubleshooting">
+
+        <Preference
+            android:key="cancel_default"
+            android:title="@string/cancel_default"/>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

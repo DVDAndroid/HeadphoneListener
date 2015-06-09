@@ -48,7 +48,7 @@ public class HeadsetReceiver extends BroadcastReceiver {
 	private void startDefaultIntent(Context context) {
 		Intent playerIntent = new Intent(Intent.ACTION_MAIN);
 		playerIntent.addCategory(Intent.CATEGORY_APP_MUSIC);
-		playerIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		playerIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		try {
 			context.startActivity(playerIntent);
 		} catch (ActivityNotFoundException e) {
