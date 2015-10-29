@@ -13,6 +13,8 @@ import com.dvd.android.headphonelistener.R;
 
 public class HeadsetReceiver extends BroadcastReceiver {
 
+	private boolean showUINotification;
+
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		if (intent.getAction().equals(Intent.ACTION_HEADSET_PLUG)) {
@@ -21,37 +23,47 @@ public class HeadsetReceiver extends BroadcastReceiver {
 					Context.MODE_PRIVATE);
 			String packageName = prefs.getString("default_app_packageName",
 					context.getString(R.string.none));
-			int level = prefs.getInt("initial_volume", 20);
+			showUINotification = prefs.getBoolean("notification_change", true);
+
+			int enter_level = prefs.getInt("initial_volume", 15);
+			int exit_level = prefs.getInt("exit_volume", 0);
 
 			int state = intent.getIntExtra("state", -1);
-			if (state == 1) {
-				setLevelAudio(context, level);
-				if (prefs.getBoolean("choose_apps", true)) {
-					startDefaultIntent(context);
-				} else {
-					if (isPackageInstalled(context, packageName)) {
-						Intent launchIntent = context.getPackageManager()
-								.getLaunchIntentForPackage(packageName);
-						try {
-							context.startActivity(launchIntent);
-						} catch (ActivityNotFoundException e) {
-							Toast.makeText(context,
-									context.getString(R.string.error),
-									Toast.LENGTH_LONG).show();
+			switch (state) {
+				case 1:
+					setLevelAudio(context, enter_level);
+					if (prefs.getBoolean("choose_apps", true)) {
+						startDefaultIntent(context);
+					} else {
+						if (isPackageInstalled(context, packageName)) {
+							Intent launchIntent = context.getPackageManager()
+									.getLaunchIntentForPackage(packageName);
+							try {
+								context.startActivity(launchIntent);
+							} catch (ActivityNotFoundException e) {
+								Toast.makeText(context,
+										context.getString(R.string.error),
+										Toast.LENGTH_LONG).show();
+								startDefaultIntent(context);
+							}
+						} else {
 							startDefaultIntent(context);
 						}
-					} else {
-						startDefaultIntent(context);
 					}
-				}
+					break;
+				case 0:
+					setLevelAudio(context, exit_level);
 			}
 		}
 	}
 
 	private void setLevelAudio(Context context, int levelAudio) {
+		int flags = showUINotification ? AudioManager.FLAG_SHOW_UI : 0;
+
 		AudioManager audioManager = (AudioManager) context
 				.getSystemService(Context.AUDIO_SERVICE);
-		audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, levelAudio, 0);
+		audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, levelAudio,
+				flags);
 	}
 
 	private void startDefaultIntent(Context context) {

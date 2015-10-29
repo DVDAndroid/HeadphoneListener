@@ -24,4 +24,7 @@
     <string name="initial_volume_summary">Imposta il livello di volume quando le cuffie sono collegate</string>
     <string name="volume">Impostazioni volume</string>
     <string name="general_settings">Impostazioni generali</string>
+    <string name="exit_volume">Volume finale</string>
+    <string name="exit_volume_summary">Imposta il livello di volume quando le cuffie sono scollegate</string>
+    <string name="show_notification_change">Visualizza notifica al cambio volume</string>
 </resources>

@@ -13,6 +13,7 @@
     <string name="restart_service">Restart service</string>
     <string name="notification">Notification settings</string>
     <string name="show_notification">Show notification</string>
+    <string name="show_notification_change">Show notification on volume change</string>
     <string name="about">About</string>
     <string name="visit_webpage">Visit my webpage</string>
     <string name="show_source_code">Show source code</string>
@@ -24,6 +25,8 @@
     <string name="volume">Volume settings</string>
     <string name="initial_volume">Initial volume</string>
     <string name="initial_volume_summary">Set volume level when headphones are plugged in</string>
+    <string name="exit_volume">Exit volume</string>
+    <string name="exit_volume_summary">Set volume level when headphones are plugged off</string>
     <string name="general_settings">General settings</string>
 
 </resources>
